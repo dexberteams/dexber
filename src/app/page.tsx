@@ -1,65 +1,164 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { ArrowRight, Code, Layout, Lightbulb, Smartphone, Shield, Zap } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-24 pb-32">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/20 via-brand-navy to-background -z-10" />
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6"
+          >
+            Building the Future of <br className="hidden md:block" />
+            <span className="text-brand-blue">Digital Technology</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-lg md:text-xl text-brand-gray/80 max-w-2xl mx-auto mb-10"
+          >
+            We design and develop reliable, innovative software solutions that help people and organizations communicate better and work smarter.
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <Link href="/get-started">
+              <Button size="lg" className="w-full sm:w-auto">
+                Start Your Project
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/portfolio">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                View Our Work
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-white/5 relative z-10">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-white mb-4">Our Services</h2>
+            <p className="text-brand-gray/70 max-w-2xl mx-auto">
+              From custom software to scalable web platforms, we provide full-cycle development services.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="hover:border-brand-blue/50 transition-colors">
+              <CardHeader>
+                <Code className="h-10 w-10 text-brand-blue mb-4" />
+                <CardTitle>Software Development</CardTitle>
+              </CardHeader>
+              <CardContent className="text-brand-gray/70">
+                Custom software solutions designed specifically for businesses and organizations.
+              </CardContent>
+            </Card>
+            <Card className="hover:border-brand-blue/50 transition-colors">
+              <CardHeader>
+                <Layout className="h-10 w-10 text-brand-blue mb-4" />
+                <CardTitle>Web Solutions</CardTitle>
+              </CardHeader>
+              <CardContent className="text-brand-gray/70">
+                Modern, scalable, and responsive websites and e-commerce platforms.
+              </CardContent>
+            </Card>
+            <Card className="hover:border-brand-blue/50 transition-colors">
+              <CardHeader>
+                <Lightbulb className="h-10 w-10 text-brand-blue mb-4" />
+                <CardTitle>IT Consulting</CardTitle>
+              </CardHeader>
+              <CardContent className="text-brand-gray/70">
+                Technology guidance, system planning, and digital transformation support.
+              </CardContent>
+            </Card>
+            <Card className="hover:border-brand-blue/50 transition-colors">
+              <CardHeader>
+                <Smartphone className="h-10 w-10 text-brand-blue mb-4" />
+                <CardTitle>Product Development</CardTitle>
+              </CardHeader>
+              <CardContent className="text-brand-gray/70">
+                Designing and building innovative digital platforms and applications.
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-6">Built on Core Values</h2>
+              <p className="text-brand-gray/70 mb-8 text-lg">
+                We believe in making complex technology simple and user-friendly, while building secure and dependable digital systems.
+              </p>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4">
+                  <div className="bg-brand-blue/20 p-2 rounded-lg">
+                    <Zap className="h-6 w-6 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">Innovation</h4>
+                    <p className="text-brand-gray/70">Continuously exploring new technologies and ideas.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="bg-brand-blue/20 p-2 rounded-lg">
+                    <Shield className="h-6 w-6 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">Reliability</h4>
+                    <p className="text-brand-gray/70">Building secure and dependable digital systems.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden border border-white/10">
+              <div className="absolute inset-0 bg-brand-blue/10 flex items-center justify-center">
+                <Image
+                  src="/images/logos/Dexber_White_PNG-01.png"
+                  alt="Dexber Core Values"
+                  width={200}
+                  height={200}
+                  className="opacity-50"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-brand-blue/10 border-t border-brand-blue/20">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">Ready to start your digital journey?</h2>
+          <p className="text-brand-gray/80 mb-8 max-w-2xl mx-auto">
+            Fill out our requirement form and we'll get back to you with a custom proposal and timeline.
           </p>
+          <Link href="/get-started">
+            <Button size="lg">Get a Custom Quote</Button>
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
     </div>
   );
 }

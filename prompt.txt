@@ -1,5 +1,43 @@
-our company's name is dexbar.
-here is some pdf and docx files check my all files and understant our company requeirments. If needs ajustments give me suggetions .
 
-i will setup our company project next.js but right now needs strong plan and aurcitecture 
- 
+Dexber.com — Build Tasks
+Phase 1: Project Setup
+ Initialize Next.js 15 project with TypeScript
+ Install dependencies (Tailwind CSS 4, Framer Motion, etc.)
+ Configure project structure (folders, aliases)
+ Set up Tailwind config with Dexber brand colors
+ Add Google Fonts (Inter, Cairo)
+ Copy logo assets into public/
+Phase 2: Design System & Global Styles
+ Create globals.css with design tokens
+ Build reusable UI components (Button, Card, Badge, Input)
+ Set up Framer Motion animation variants
+Phase 3: Layout Components
+ Navbar (responsive, mobile menu, logo)
+ Footer (links, social, branding)
+ Root layout with metadata/SEO
+Phase 4: Pages
+ Home page (Hero, Services, Portfolio preview, Stats, CTA)
+ About page (Company profile, Vision, Mission, Values)
+ Services page (Service cards with details)
+ Pricing page (Package cards, interactive calculator)
+ Portfolio page (Project grid)
+ Contact page (Form + WhatsApp + Map)
+ Get Started page (Multi-step requirement form)
+Phase 5: Forms & API Routes
+ Contact form API route
+ Requirement form API route
+ Form validation (Zod schemas)
+Phase 6: Admin Dashboard
+ Admin layout with sidebar
+ Dashboard overview page
+ Inquiries management page
+Phase 7: i18n & Polish
+ Set up next-intl
+ Add translations (EN, AR, BN)
+ RTL support for Arabic
+ Final polish & animations
+Phase 8: Verification
+ Build passes with zero errors
+ Lighthouse audit 90+
+ Responsive testing
+ Cross-browser check
