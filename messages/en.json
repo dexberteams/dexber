@@ -1,0 +1,18 @@
+{
+  "HomePage": {
+    "title": "Building the Future of Digital Technology",
+    "description": "We craft stunning web experiences that elevate your business."
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "Common": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
+  }
+}

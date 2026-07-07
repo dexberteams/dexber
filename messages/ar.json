@@ -1,0 +1,18 @@
+{
+  "HomePage": {
+    "title": "بناء مستقبل التكنولوجيا الرقمية",
+    "description": "نحن نصنع تجارب ويب مذهلة ترتقي بعملك."
+  },
+  "Navigation": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "services": "الخدمات",
+    "portfolio": "الأعمال",
+    "pricing": "الأسعار",
+    "contact": "اتصل بنا"
+  },
+  "Common": {
+    "getStarted": "ابدأ الآن",
+    "learnMore": "اعرف المزيد"
+  }
+}
