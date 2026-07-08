@@ -7,6 +7,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { SessionProvider } from "@/components/SessionProvider";
+import { TopNavbar } from "@/components/layout/TopNavbar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -45,13 +48,19 @@ export default async function RootLayout({
       lang={locale}
       dir={dir}
       className={`${inter.variable} ${cairo.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className={`min-h-full flex flex-col font-sans bg-background text-foreground dark ${fontClass}`}>
-        <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
+      <body className={`min-h-full flex flex-col font-sans bg-background text-foreground ${fontClass}`}>
+        <SessionProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <NextIntlClientProvider messages={messages}>
+              <TopNavbar />
+              <Navbar />
+              <main className="flex-1 mt-10">{children}</main>
+              <Footer />
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-brand-navy/80 backdrop-blur-md">
+    <header className="sticky top-10 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -14,13 +14,13 @@ export function Navbar() {
             height={32}
             className="object-contain"
           />
-          <span className="text-xl font-bold tracking-tight text-white">Dexber</span>
+          <span className="text-xl font-bold tracking-tight text-foreground">Dexber</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link href="/about" className="text-brand-gray/80 hover:text-white transition-colors">About</Link>
-          <Link href="/services" className="text-brand-gray/80 hover:text-white transition-colors">Services</Link>
-          <Link href="/portfolio" className="text-brand-gray/80 hover:text-white transition-colors">Portfolio</Link>
-          <Link href="/pricing" className="text-brand-gray/80 hover:text-white transition-colors">Pricing</Link>
+          <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
+          <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">Services</Link>
+          <Link href="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">Portfolio</Link>
+          <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</Link>
         </nav>
         <div className="flex items-center gap-4">
           <Link href="/get-started">
