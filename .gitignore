@@ -44,3 +44,5 @@ implementation_plan.md
 prompt.txt
 walkthrough.md
 task.md
+
+/src/generated/prisma

@@ -9,5 +9,5 @@ export function proxy(request: any) {
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(en|ar|bn)/:path*']
+  matcher: ['/', '/(en|ar)/:path*']
 };

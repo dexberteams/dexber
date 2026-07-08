@@ -1,0 +1,130 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  password      String?
+  image         String?
+  role          Role      @default(USER)
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?
+  access_token       String?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Inquiry {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  whatsapp    String?
+  company     String?
+  message     String
+  status      InquiryStatus @default(NEW)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model RequirementForm {
+  id              String   @id @default(cuid())
+  clientName      String
+  companyName     String?
+  contactNumber   String
+  whatsappNumber  String?
+  email           String
+  location        String?
+  websiteLanguage String[] // ["en", "ar"]
+  hasExistingWeb  Boolean  @default(false)
+  existingWebUrl  String?
+  websiteType     String   // business, portfolio, ecommerce, etc.
+  hasLogo         Boolean  @default(false)
+  preferredColors String?
+  websiteStyle    String?  // modern, luxury, minimal, etc.
+  features        String[] // array of selected features
+  hasDomain       Boolean  @default(false)
+  domainName      String?
+  hasHosting      Boolean  @default(false)
+  socialLinks     String?  // Storing JSON as string or just leave as String
+  budget          String?
+  expectedDate    String?
+  notes           String?
+  status          InquiryStatus @default(NEW)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  category    String   // coffee-shop, business, portfolio, ecommerce
+  images      String[]
+  technologies String[]
+  clientName  String?
+  liveUrl     String?
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  excerpt     String?
+  coverImage  String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum InquiryStatus {
+  NEW
+  IN_REVIEW
+  CONTACTED
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}

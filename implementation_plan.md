@@ -54,7 +54,7 @@ A **company website for Dexber** that:
 2. Includes a digital client requirement form
 3. Displays portfolio/case studies
 4. Has an admin dashboard for managing inquiries
-5. Supports multi-language (English, Arabic, Bengali)
+5. Supports multi-language (English, Arabic)
 6. Is SEO-optimized and blazing fast
 
 ---
@@ -71,7 +71,7 @@ A **company website for Dexber** that:
 | **Auth** | NextAuth.js v5 | Admin panel authentication |
 | **Forms** | React Hook Form + Zod | Validation + type-safe forms |
 | **Email** | Resend or Nodemailer | Client inquiry notifications |
-| **i18n** | next-intl | Multi-language support (EN/AR/BN) |
+| **i18n** | next-intl | Multi-language support (EN/AR) |
 | **CMS** | Markdown + MDX (or Sanity later) | Blog/portfolio content management |
 | **Deployment** | Vercel | Zero-config, edge network, analytics |
 | **Analytics** | Vercel Analytics + Google Analytics | Traffic tracking |
@@ -173,8 +173,7 @@ dexbar/
 │   │
 │   ├── i18n/
 │   │   ├── en.json             # English translations
-│   │   ├── ar.json             # Arabic translations
-│   │   └── bn.json             # Bengali translations
+│   │   └── ar.json             # Arabic translations
 │   │
 │   ├── styles/
 │   │   └── globals.css         # Global styles + Tailwind
@@ -197,6 +196,49 @@ dexbar/
 ### Database Schema (Prisma)
 
 ```prisma
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          Role      @default(USER)
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?
+  access_token       String?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
 model Inquiry {
   id          String   @id @default(cuid())
   name        String
@@ -218,7 +260,7 @@ model RequirementForm {
   whatsappNumber  String?
   email           String
   location        String?
-  websiteLanguage String[] // ["en", "ar", "bn"]
+  websiteLanguage String[] // ["en", "ar"]
   hasExistingWeb  Boolean  @default(false)
   existingWebUrl  String?
   websiteType     String   // business, portfolio, ecommerce, etc.
@@ -350,7 +392,7 @@ Based on your logo (hexagonal icon with asterisk motif), I recommend:
 
 ### Manual Verification
 - Test all pages across desktop, tablet, mobile viewports
-- Verify multi-language switching (EN → AR → BN)
+- Verify multi-language switching (EN → AR)
 - Test requirement form submission flow end-to-end
 - Verify admin dashboard CRUD operations
 - Cross-browser testing (Chrome, Firefox, Safari, Edge)

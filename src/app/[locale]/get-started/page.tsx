@@ -131,7 +131,6 @@ export default function GetStartedPage() {
                     <option value="">Select a language...</option>
                     <option value="en">English</option>
                     <option value="ar">Arabic (RTL)</option>
-                    <option value="bn">Bengali</option>
                     <option value="multi">Multilingual (EN + AR)</option>
                   </select>
                   {form.formState.errors.websiteLanguage && (
