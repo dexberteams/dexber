@@ -1,31 +1,49 @@
 import { NextResponse } from "next/server";
-import { contactFormSchema } from "@/lib/validations";
+import { db } from "@/lib/db";
+import { z } from "zod";
 
-export async function POST(request: Request) {
+const contactSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().optional(),
+  company: z.string().optional(),
+  message: z.string().min(5, "Message must be at least 5 characters"),
+});
+
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
-    
-    // Validate the request body
-    const validatedData = contactFormSchema.parse(body);
+    const body = await req.json();
 
-    // TODO: Save to database or send an email
-    // For example: await prisma.inquiry.create({ data: validatedData })
-    console.log("Contact form submitted:", validatedData);
+    // Validate request body
+    const validatedData = contactSchema.parse(body);
+
+    // Save to database
+    const inquiry = await db.inquiry.create({
+      data: {
+        name: validatedData.name,
+        email: validatedData.email,
+        phone: validatedData.phone,
+        company: validatedData.company,
+        message: validatedData.message,
+      },
+    });
 
     return NextResponse.json(
-      { message: "Your message has been sent successfully!" },
-      { status: 200 }
+      { message: "Contact inquiry submitted successfully", inquiryId: inquiry.id },
+      { status: 201 }
     );
   } catch (error) {
-    if (error instanceof Error && error.name === "ZodError") {
+    console.error("Contact Form Error:", error);
+
+    if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { message: "Invalid form data.", error: error },
+        { message: "Invalid form data", errors: error.flatten().fieldErrors },
         { status: 400 }
       );
     }
-    
+
     return NextResponse.json(
-      { message: "Something went wrong. Please try again later." },
+      { message: "Failed to submit inquiry" },
       { status: 500 }
     );
   }

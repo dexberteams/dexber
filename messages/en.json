@@ -48,6 +48,150 @@
     "signIn": "Sign In",
     "register": "Register"
   },
+  "Footer": {
+    "tagline": "Building the Future of Digital Technology.",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "connect": "Connect",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "rights": "All rights reserved."
+  },
+  "Pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Choose the perfect package for your business. 50% advance payment required for all projects.",
+    "mostPopular": "Most Popular",
+    "currency": "SAR",
+    "selectPackage": "Select Package",
+    "packages": {
+      "portfolio": {
+        "name": "Portfolio Package",
+        "description": "Perfect for freelancers and creatives showcasing their work.",
+        "features": {
+          "feature1": "Custom Homepage",
+          "feature2": "About & Contact Pages",
+          "feature3": "Portfolio Grid / Gallery",
+          "feature4": "Basic SEO Setup",
+          "feature5": "Mobile Responsive Design"
+        }
+      },
+      "coffeeShop": {
+        "name": "Coffee Shop Package",
+        "description": "Ideal for cafes and restaurants to showcase their menu and location.",
+        "features": {
+          "feature1": "Digital Menu Integration",
+          "feature2": "Location & Opening Hours",
+          "feature3": "Social Media Links",
+          "feature4": "Contact & Reservation Form",
+          "feature5": "Mobile Responsive Design",
+          "feature6": "1 Month Free Support"
+        }
+      },
+      "business": {
+        "name": "Business Package",
+        "description": "Comprehensive website for corporate and small businesses.",
+        "features": {
+          "feature1": "Up to 10 Pages",
+          "feature2": "Services Showcase",
+          "feature3": "Contact Form & Map",
+          "feature4": "Advanced SEO Optimization",
+          "feature5": "Blog Setup",
+          "feature6": "3 Months Free Support"
+        }
+      },
+      "ecommerce": {
+        "name": "E-Commerce Package",
+        "description": "Full online store setup with payment gateway integration.",
+        "features": {
+          "feature1": "Custom Store Design",
+          "feature2": "Product Catalog Setup",
+          "feature3": "Shopping Cart & Checkout",
+          "feature4": "Payment Gateway Integration",
+          "feature5": "Inventory Management",
+          "feature6": "6 Months Free Support"
+        }
+      }
+    }
+  },
+  "About": {
+    "title": "About Dexber",
+    "subtitle": "We are a team of passionate developers, designers, and strategists building the future of digital technology.",
+    "storyTitle": "Our Story",
+    "storyText": "Dexber was founded with a simple vision: to make complex technology accessible and user-friendly for businesses of all sizes. We believe that a strong digital foundation is the key to modern success.",
+    "visionTitle": "Our Vision",
+    "visionText": "To become the leading digital transformation partner for innovative companies worldwide.",
+    "missionTitle": "Our Mission",
+    "missionText": "To design and develop reliable, scalable, and beautifully crafted software solutions that empower our clients to achieve their goals.",
+    "stats": {
+      "projects": "Projects Completed",
+      "clients": "Happy Clients",
+      "experience": "Years Experience"
+    },
+    "cittheTitle": "Coming Soon: Citthe",
+    "cittheDesc": "Our flagship product is currently in stealth mode. Get ready for a revolutionary new way to manage your digital presence.",
+    "valuesTitle": "What Drives Us",
+    "valuesSubtitle": "Our core principles that guide every line of code we write."
+  },
+  "Services": {
+    "title": "What We Build",
+    "subtitle": "Comprehensive digital solutions tailored to your unique business needs.",
+    "processTitle": "How We Work",
+    "processSubtitle": "Our proven methodology ensures quality delivery from concept to launch.",
+    "step1Title": "Discovery",
+    "step1Desc": "Understanding your goals, requirements, and target audience.",
+    "step2Title": "Design",
+    "step2Desc": "Creating intuitive and beautiful user interfaces and experiences.",
+    "step3Title": "Develop",
+    "step3Desc": "Building robust, scalable solutions using cutting-edge technology.",
+    "step4Title": "Deploy",
+    "step4Desc": "Testing, launching, and providing ongoing support.",
+    "techTitle": "Technologies We Use",
+    "techSubtitle": "We use modern, scalable tech stacks to build future-proof applications.",
+    "mobileAppTitle": "Mobile App Development",
+    "mobileAppDesc": "Native and cross-platform mobile applications for iOS and Android.",
+    "uiuxTitle": "UI/UX Design",
+    "uiuxDesc": "User-centric design that looks beautiful and drives conversions.",
+    "ctaTitle": "Ready to build something great?",
+    "ctaSubtitle": "Let's discuss how our services can help you achieve your business goals.",
+    "ctaButton": "Start Your Project"
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "subtitle": "Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "company": "Company (Optional)",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "successTitle": "Message Sent!",
+      "successDesc": "Thank you for reaching out. We will get back to you within 24 hours.",
+      "errorTitle": "Something went wrong",
+      "errorDesc": "Failed to send your message. Please try again later.",
+      "validation": {
+        "nameRequired": "Name is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Message is required"
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email Us",
+      "phone": "Call Us",
+      "whatsapp": "WhatsApp",
+      "address": "Office Address",
+      "addressValue": "Riyadh, Saudi Arabia"
+    }
+  },
   "Auth": {
     "signIn": {
       "title": "Welcome Back",
@@ -70,6 +214,80 @@
       "signInLink": "Sign in",
       "failed": "Failed to register",
       "unexpected": "An unexpected error occurred"
+    }
+  },
+  "GetStarted": {
+    "title": "Project Requirement Form",
+    "subtitle": "Tell us about your project and we'll get back to you with a detailed proposal.",
+    "step1": "Client Info",
+    "step2": "Website Details",
+    "step3": "Design Preferences",
+    "step4": "Features",
+    "step5": "Domain & Hosting",
+    "step6": "Budget & Notes",
+    "next": "Next Step",
+    "prev": "Previous",
+    "submit": "Submit Requirements",
+    "submitting": "Submitting...",
+    "successTitle": "Request Received!",
+    "successDesc": "Thank you for choosing Dexber. Our team will review your requirements and contact you within 24 hours.",
+    "fields": {
+      "clientName": "Full Name *",
+      "companyName": "Company Name",
+      "email": "Email Address *",
+      "contactNumber": "Contact Number *",
+      "whatsappNumber": "WhatsApp Number",
+      "websiteType": "Website Type *",
+      "websiteLanguage": "Primary Language *",
+      "hasExistingWeb": "Do you have an existing website?",
+      "existingWebUrl": "Existing Website URL",
+      "hasLogo": "Do you have a logo?",
+      "preferredColors": "Preferred Colors",
+      "websiteStyle": "Website Style",
+      "features": "Select Features",
+      "hasDomain": "Do you have a domain name?",
+      "domainName": "Domain Name",
+      "hasHosting": "Do you have web hosting?",
+      "budget": "Estimated Budget",
+      "expectedDate": "Expected Launch Date",
+      "notes": "Additional Notes / Package"
+    },
+    "placeholders": {
+      "clientName": "John Doe",
+      "companyName": "Acme Inc.",
+      "email": "john@example.com",
+      "contactNumber": "+966 5X XXX XXXX",
+      "whatsappNumber": "+966 5X XXX XXXX",
+      "existingWebUrl": "https://www.example.com",
+      "preferredColors": "e.g., Blue and White",
+      "websiteStyle": "e.g., Modern, Minimalist, Corporate",
+      "domainName": "e.g., example.com",
+      "budget": "e.g., 5000 SAR",
+      "expectedDate": "e.g., 2 Months",
+      "notes": "Any other details..."
+    },
+    "options": {
+      "websiteType": {
+        "portfolio": "Portfolio",
+        "coffeeShop": "Coffee Shop / Restaurant",
+        "business": "Business / Corporate",
+        "ecommerce": "E-commerce",
+        "custom": "Custom Solution"
+      },
+      "websiteLanguage": {
+        "en": "English",
+        "ar": "Arabic (RTL)",
+        "multi": "Multilingual (EN + AR)"
+      },
+      "features": {
+        "contactForm": "Contact Form",
+        "gallery": "Image Gallery",
+        "blog": "Blog / News",
+        "ecommerce": "E-commerce / Shop",
+        "booking": "Booking System",
+        "multilingual": "Multilingual Support",
+        "auth": "User Login / Registration"
+      }
     }
   }
 }

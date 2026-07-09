@@ -3,34 +3,36 @@
 import { Eye, Trash2, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 
-type Inquiry = {
+type Requirement = {
   id: string;
-  name: string;
-  company: string | null;
+  clientName: string;
+  companyName: string | null;
   email: string;
-  phone: string | null;
-  message: string;
+  websiteType: string;
   status: string;
   createdAt: string;
+  // Other fields omitted for brevity, will display in modal if needed
+  budget: string | null;
+  features: string[];
 };
 
-export default function InquiriesPage() {
-  const [inquiries, setInquiries] = useState<Inquiry[]>([]);
+export default function RequirementsPage() {
+  const [requirements, setRequirements] = useState<Requirement[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchInquiries();
+    fetchRequirements();
   }, []);
 
-  const fetchInquiries = async () => {
+  const fetchRequirements = async () => {
     try {
-      const res = await fetch("/api/admin/inquiries");
+      const res = await fetch("/api/admin/requirements");
       if (res.ok) {
         const data = await res.json();
-        setInquiries(data.inquiries);
+        setRequirements(data.requirements);
       }
     } catch (error) {
-      console.error("Failed to fetch inquiries", error);
+      console.error("Failed to fetch requirements", error);
     } finally {
       setLoading(false);
     }
@@ -38,25 +40,25 @@ export default function InquiriesPage() {
 
   const updateStatus = async (id: string, status: string) => {
     try {
-      const res = await fetch(`/api/admin/inquiries/${id}`, {
+      const res = await fetch(`/api/admin/requirements/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),
       });
       if (res.ok) {
-        setInquiries(inquiries.map(i => i.id === id ? { ...i, status } : i));
+        setRequirements(requirements.map(r => r.id === id ? { ...r, status } : r));
       }
     } catch (error) {
       console.error("Failed to update status", error);
     }
   };
 
-  const deleteInquiry = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this inquiry?")) return;
+  const deleteRequirement = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this requirement?")) return;
     try {
-      const res = await fetch(`/api/admin/inquiries/${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/admin/requirements/${id}`, { method: "DELETE" });
       if (res.ok) {
-        setInquiries(inquiries.filter(i => i.id !== id));
+        setRequirements(requirements.filter(r => r.id !== id));
       }
     } catch (error) {
       console.error("Failed to delete", error);
@@ -66,36 +68,41 @@ export default function InquiriesPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-white">Client Inquiries</h1>
+        <h1 className="text-3xl font-bold text-white">Project Requirements</h1>
       </div>
 
       <div className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden">
         {loading ? (
-          <div className="p-8 text-center text-slate-500">Loading inquiries...</div>
+          <div className="p-8 text-center text-slate-500">Loading requirements...</div>
         ) : (
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-slate-950/50 text-slate-400 text-sm border-b border-slate-800">
                 <th className="px-6 py-4 font-medium">Name</th>
-                <th className="px-6 py-4 font-medium">Company</th>
+                <th className="px-6 py-4 font-medium">Website Type</th>
+                <th className="px-6 py-4 font-medium">Budget</th>
                 <th className="px-6 py-4 font-medium">Status</th>
                 <th className="px-6 py-4 font-medium">Date</th>
                 <th className="px-6 py-4 font-medium text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="text-slate-300">
-              {inquiries.map((inquiry) => (
-                <tr key={inquiry.id} className="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
-                  <td className="px-6 py-4 font-medium text-white">{inquiry.name}</td>
-                  <td className="px-6 py-4">{inquiry.company || "-"}</td>
+              {requirements.map((req) => (
+                <tr key={req.id} className="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
+                  <td className="px-6 py-4 font-medium text-white">
+                    {req.clientName}
+                    <div className="text-xs text-slate-500 font-normal">{req.companyName}</div>
+                  </td>
+                  <td className="px-6 py-4">{req.websiteType}</td>
+                  <td className="px-6 py-4">{req.budget || "-"}</td>
                   <td className="px-6 py-4">
                     <select
-                      value={inquiry.status}
-                      onChange={(e) => updateStatus(inquiry.id, e.target.value)}
+                      value={req.status}
+                      onChange={(e) => updateStatus(req.id, e.target.value)}
                       className={`bg-slate-950 border border-slate-800 rounded px-2 py-1 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-blue-500 ${
-                        inquiry.status === "NEW" ? "text-blue-400" :
-                        inquiry.status === "IN_REVIEW" ? "text-amber-400" :
-                        inquiry.status === "COMPLETED" ? "text-green-400" :
+                        req.status === "NEW" ? "text-blue-400" :
+                        req.status === "IN_REVIEW" ? "text-amber-400" :
+                        req.status === "COMPLETED" ? "text-green-400" :
                         "text-slate-400"
                       }`}
                     >
@@ -108,20 +115,20 @@ export default function InquiriesPage() {
                     </select>
                   </td>
                   <td className="px-6 py-4 text-sm text-slate-500">
-                    {new Date(inquiry.createdAt).toLocaleDateString()}
+                    {new Date(req.createdAt).toLocaleDateString()}
                   </td>
                   <td className="px-6 py-4 text-right space-x-2 flex justify-end">
-                    <a href={`mailto:${inquiry.email}`} className="p-2 text-slate-400 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-colors">
+                    <a href={`mailto:${req.email}`} className="p-2 text-slate-400 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-colors">
                       <Mail className="w-4 h-4" />
                     </a>
                     <button 
-                      onClick={() => alert(`Message:\n${inquiry.message}`)}
+                      onClick={() => alert(JSON.stringify(req, null, 2))}
                       className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg transition-colors"
                     >
                       <Eye className="w-4 h-4" />
                     </button>
                     <button 
-                      onClick={() => deleteInquiry(inquiry.id)}
+                      onClick={() => deleteRequirement(req.id)}
                       className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -133,9 +140,9 @@ export default function InquiriesPage() {
           </table>
         )}
         
-        {!loading && inquiries.length === 0 && (
+        {!loading && requirements.length === 0 && (
           <div className="p-8 text-center text-slate-500">
-            No inquiries found.
+            No project requirements found.
           </div>
         )}
       </div>

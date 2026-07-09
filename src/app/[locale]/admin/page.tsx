@@ -1,12 +1,24 @@
 import { MessageSquare, Users, Briefcase, TrendingUp } from "lucide-react";
+import { db } from "@/lib/db";
 
-export default function AdminDashboardPage() {
+export default async function AdminDashboardPage() {
+  const totalInquiries = await db.inquiry.count();
+  const totalRequirements = await db.requirementForm.count();
+  const totalProjects = await db.project.count();
+  const totalClientsServed = totalInquiries + totalRequirements; // Rough estimate
+
   const stats = [
-    { label: "Total Inquiries", value: "24", icon: MessageSquare, trend: "+12% this month" },
-    { label: "Active Projects", value: "7", icon: Briefcase, trend: "3 completing soon" },
-    { label: "Clients Served", value: "42", icon: Users, trend: "+4 this month" },
+    { label: "Total Inquiries", value: totalInquiries.toString(), icon: MessageSquare, trend: "Standard Contact" },
+    { label: "Project Requirements", value: totalRequirements.toString(), icon: Briefcase, trend: "Detailed Submissions" },
+    { label: "Total Projects", value: totalProjects.toString(), icon: Users, trend: "Portfolio" },
     { label: "Revenue (Est)", value: "$12,400", icon: TrendingUp, trend: "+18% vs last month" },
   ];
+
+  // Fetch recent activity
+  const recentInquiries = await db.inquiry.findMany({
+    take: 3,
+    orderBy: { createdAt: "desc" },
+  });
 
   return (
     <div className="space-y-6">
@@ -28,19 +40,22 @@ export default function AdminDashboardPage() {
         ))}
       </div>
 
-      {/* Recent Activity (Mock) */}
+      {/* Recent Activity */}
       <div className="bg-slate-900 rounded-xl border border-slate-800 p-6 mt-8">
         <h2 className="text-xl font-semibold text-white mb-4">Recent Activity</h2>
         <div className="space-y-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="flex items-center pb-4 border-b border-slate-800 last:border-0 last:pb-0">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-4"></div>
-              <div>
-                <p className="text-white text-sm">New inquiry from <strong>Company {i}</strong></p>
-                <p className="text-xs text-slate-500">{i * 2} hours ago</p>
+          {recentInquiries.map((inquiry) => (
+            <div key={inquiry.id} className="flex items-center p-4 bg-muted/50 rounded-lg">
+              <div className="w-2 h-2 bg-blue-500 rounded-full me-4"></div>
+              <div className="flex-1 flex justify-between items-center">
+                <p className="text-white text-sm">New inquiry from <strong>{inquiry.company || inquiry.name}</strong></p>
+                <p className="text-xs text-slate-500">{new Date(inquiry.createdAt).toLocaleDateString()}</p>
               </div>
             </div>
           ))}
+          {recentInquiries.length === 0 && (
+            <p className="text-sm text-slate-500">No recent activity.</p>
+          )}
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { useTranslations } from "next-intl";
+import { MobileMenu } from "./MobileMenu";
 
 export function Navbar() {
   const t = useTranslations("Navigation");
@@ -33,9 +34,12 @@ export function Navbar() {
           <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">{t("pricing")}</Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Link href="/get-started">
-            <Button size="sm">{t("getStarted")}</Button>
-          </Link>
+          <div className="hidden md:block">
+            <Link href="/get-started">
+              <Button size="sm">{t("getStarted")}</Button>
+            </Link>
+          </div>
+          <MobileMenu />
         </div>
       </div>
     </header>

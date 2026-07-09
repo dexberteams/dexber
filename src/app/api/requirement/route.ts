@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { requirementFormSchema } from "@/lib/validations";
+import { db } from "@/lib/db";
+import { z } from "zod";
 
 export async function POST(request: Request) {
   try {
@@ -8,18 +10,24 @@ export async function POST(request: Request) {
     // Validate the request body
     const validatedData = requirementFormSchema.parse(body);
 
-    // TODO: Save to database or send an email
-    // For example: await prisma.requirementForm.create({ data: validatedData })
-    console.log("Requirement form submitted:", validatedData);
+    // Save to database
+    const requirement = await db.requirementForm.create({
+      data: {
+        ...validatedData,
+        socialLinks: validatedData.socialLinks ? JSON.stringify(validatedData.socialLinks) : null,
+      },
+    });
 
     return NextResponse.json(
-      { message: "Your requirements have been submitted successfully! We will contact you soon." },
-      { status: 200 }
+      { message: "Your requirements have been submitted successfully! We will contact you soon.", requirementId: requirement.id },
+      { status: 201 }
     );
   } catch (error) {
-    if (error instanceof Error && error.name === "ZodError") {
+    console.error("Requirement Form Error:", error);
+    
+    if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { message: "Invalid form data.", error: error },
+        { message: "Invalid form data", errors: error.flatten().fieldErrors },
         { status: 400 }
       );
     }
