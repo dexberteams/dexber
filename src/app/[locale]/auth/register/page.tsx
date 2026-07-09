@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export default function RegisterPage() {
   const router = useRouter();
+  const t = useTranslations("Auth.register");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,10 +30,10 @@ export default function RegisterPage() {
         router.push("/auth/signin");
       } else {
         const data = await res.json();
-        setError(data.message || "Failed to register");
+        setError(data.message || t("failed"));
       }
     } catch (err) {
-      setError("An unexpected error occurred");
+      setError(t("unexpected"));
     }
   };
 
@@ -43,8 +45,8 @@ export default function RegisterPage() {
         className="w-full max-w-md p-8 rounded-2xl border border-border bg-card shadow-lg backdrop-blur-sm"
       >
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold tracking-tight text-card-foreground">Create Account</h1>
-          <p className="text-sm text-muted-foreground mt-2">Join Dexber and start building</p>
+          <h1 className="text-3xl font-bold tracking-tight text-card-foreground">{t("title")}</h1>
+          <p className="text-sm text-muted-foreground mt-2">{t("description")}</p>
         </div>
 
         {error && (
@@ -55,7 +57,7 @@ export default function RegisterPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="name">Name</label>
+            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="name">{t("name")}</label>
             <input
               id="name"
               type="text"
@@ -66,7 +68,7 @@ export default function RegisterPage() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="email">Email</label>
+            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="email">{t("email")}</label>
             <input
               id="email"
               type="email"
@@ -77,7 +79,7 @@ export default function RegisterPage() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="password">Password</label>
+            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="password">{t("password")}</label>
             <input
               id="password"
               type="password"
@@ -88,12 +90,12 @@ export default function RegisterPage() {
             />
           </div>
           <Button type="submit" className="w-full mt-6">
-            Register
+            {t("submit")}
           </Button>
         </form>
 
         <p className="mt-6 text-center text-sm text-muted-foreground">
-          Already have an account? <Link href="/auth/signin" className="text-primary hover:underline">Sign in</Link>
+          {t("hasAccount")} <Link href="/auth/signin" className="text-primary hover:underline">{t("signInLink")}</Link>
         </p>
       </motion.div>
     </div>

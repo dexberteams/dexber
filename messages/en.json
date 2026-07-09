@@ -1,18 +1,75 @@
 {
   "HomePage": {
-    "title": "Building the Future of Digital Technology",
-    "description": "We craft stunning web experiences that elevate your business."
+    "heroTitle1": "Building the Future of",
+    "heroTitle2": "Digital Technology",
+    "heroSubtitle": "We design and develop reliable, innovative software solutions that help people and organizations communicate better and work smarter.",
+    "startProject": "Start Your Project",
+    "viewWork": "View Our Work",
+    "servicesTitle": "Our Services",
+    "servicesSubtitle": "From custom software to scalable web platforms, we provide full-cycle development services.",
+    "service1Title": "Software Development",
+    "service1Desc": "Custom software solutions designed specifically for businesses and organizations.",
+    "service2Title": "Web Solutions",
+    "service2Desc": "Modern, scalable, and responsive websites and e-commerce platforms.",
+    "service3Title": "IT Consulting",
+    "service3Desc": "Technology guidance, system planning, and digital transformation support.",
+    "service4Title": "Product Development",
+    "service4Desc": "Designing and building innovative digital platforms and applications.",
+    "valuesTitle": "Built on Core Values",
+    "valuesSubtitle": "We believe in making complex technology simple and user-friendly, while building secure and dependable digital systems.",
+    "value1Title": "Innovation",
+    "value1Desc": "Continuously exploring new technologies and ideas.",
+    "value2Title": "Reliability",
+    "value2Desc": "Building secure and dependable digital systems.",
+    "ctaTitle": "Ready to start your digital journey?",
+    "ctaSubtitle": "Fill out our requirement form and we'll get back to you with a custom proposal and timeline.",
+    "ctaButton": "Get a Custom Quote"
   },
   "Navigation": {
     "home": "Home",
-    "about": "About Us",
+    "about": "About",
     "services": "Services",
     "portfolio": "Portfolio",
     "pricing": "Pricing",
-    "contact": "Contact"
+    "contact": "Contact",
+    "signIn": "Sign In",
+    "register": "Register",
+    "getStarted": "Get Started"
   },
   "Common": {
     "getStarted": "Get Started",
     "learnMore": "Learn More"
+  },
+  "TopNavbar": {
+    "hi": "Hi,",
+    "user": "User",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "signIn": "Sign In",
+    "register": "Register"
+  },
+  "Auth": {
+    "signIn": {
+      "title": "Welcome Back",
+      "description": "Sign in to your Dexber account",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Register here",
+      "invalid": "Invalid email or password"
+    },
+    "register": {
+      "title": "Create Account",
+      "description": "Join Dexber and start building",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Register",
+      "hasAccount": "Already have an account?",
+      "signInLink": "Sign in",
+      "failed": "Failed to register",
+      "unexpected": "An unexpected error occurred"
+    }
   }
 }

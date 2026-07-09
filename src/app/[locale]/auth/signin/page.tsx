@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export default function SignInPage() {
   const router = useRouter();
+  const t = useTranslations("Auth.signIn");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -24,7 +26,7 @@ export default function SignInPage() {
     });
 
     if (result?.error) {
-      setError("Invalid email or password");
+      setError(t("invalid"));
     } else {
       router.push("/");
       router.refresh();
@@ -39,8 +41,8 @@ export default function SignInPage() {
         className="w-full max-w-md p-8 rounded-2xl border border-border bg-card shadow-lg backdrop-blur-sm"
       >
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold tracking-tight text-card-foreground">Welcome Back</h1>
-          <p className="text-sm text-muted-foreground mt-2">Sign in to your Dexber account</p>
+          <h1 className="text-3xl font-bold tracking-tight text-card-foreground">{t("title")}</h1>
+          <p className="text-sm text-muted-foreground mt-2">{t("description")}</p>
         </div>
 
         {error && (
@@ -51,7 +53,7 @@ export default function SignInPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="email">Email</label>
+            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="email">{t("email")}</label>
             <input
               id="email"
               type="email"
@@ -62,7 +64,7 @@ export default function SignInPage() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="password">Password</label>
+            <label className="block text-sm font-medium mb-1 text-card-foreground" htmlFor="password">{t("password")}</label>
             <input
               id="password"
               type="password"
@@ -73,12 +75,12 @@ export default function SignInPage() {
             />
           </div>
           <Button type="submit" className="w-full mt-6">
-            Sign In
+            {t("submit")}
           </Button>
         </form>
 
         <p className="mt-6 text-center text-sm text-muted-foreground">
-          Don't have an account? <Link href="/auth/register" className="text-primary hover:underline">Register here</Link>
+          {t("noAccount")} <Link href="/auth/register" className="text-primary hover:underline">{t("registerLink")}</Link>
         </p>
       </motion.div>
     </div>
