@@ -50,7 +50,7 @@ export default function GetStartedPage() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Project Requirement Form</h1>
-          <p className="text-brand-gray/80">
+          <p className="text-muted-foreground/80">
             Tell us about your project and we'll get back to you with a detailed proposal.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function GetStartedPage() {
                 <span className="text-3xl">✓</span>
               </div>
               <h2 className="text-2xl font-bold text-white mb-2">Request Received!</h2>
-              <p className="text-brand-gray/80">
+              <p className="text-muted-foreground/80">
                 Thank you for choosing Dexber. Our team will review your requirements and contact you within 24 hours.
               </p>
             </CardContent>
@@ -109,7 +109,7 @@ export default function GetStartedPage() {
                   <label className="text-sm font-medium text-white">Website Type *</label>
                   <select 
                     {...form.register("websiteType")}
-                    className="flex h-10 w-full rounded-md border border-white/10 bg-[#121827] px-3 py-2 text-sm text-brand-gray focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+                    className="flex h-10 w-full rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
                   >
                     <option value="">Select a type...</option>
                     <option value="portfolio">Portfolio</option>
@@ -126,7 +126,7 @@ export default function GetStartedPage() {
                   <label className="text-sm font-medium text-white">Primary Language *</label>
                   <select 
                     {...form.register("websiteLanguage")}
-                    className="flex h-10 w-full rounded-md border border-white/10 bg-[#121827] px-3 py-2 text-sm text-brand-gray focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+                    className="flex h-10 w-full rounded-md border border-border bg-muted px-3 py-2 text-sm text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
                   >
                     <option value="">Select a language...</option>
                     <option value="en">English</option>

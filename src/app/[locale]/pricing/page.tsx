@@ -68,7 +68,7 @@ export default function PricingPage() {
     <div className="container mx-auto px-4 md:px-6 py-24">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h1>
-        <p className="text-xl text-brand-gray/80 max-w-2xl mx-auto">
+        <p className="text-xl text-muted-foreground/80 max-w-2xl mx-auto">
           Choose the perfect package for your business. 50% advance payment required for all projects.
         </p>
       </div>
@@ -85,14 +85,14 @@ export default function PricingPage() {
               <CardTitle className="mb-2">{plan.name}</CardTitle>
               <div className="flex items-baseline gap-2">
                 <span className="text-3xl font-bold text-white">{plan.price}</span>
-                <span className="text-brand-gray/70">{plan.currency}</span>
+                <span className="text-muted-foreground/70">{plan.currency}</span>
               </div>
-              <p className="text-sm text-brand-gray/70 mt-2">{plan.description}</p>
+              <p className="text-sm text-muted-foreground/70 mt-2">{plan.description}</p>
             </CardHeader>
             <CardContent className="flex-1 flex flex-col">
               <ul className="space-y-3 flex-1 mb-8">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-brand-gray/90">
+                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground/90">
                     <Check className="h-5 w-5 text-brand-blue shrink-0" />
                     <span>{feature}</span>
                   </li>

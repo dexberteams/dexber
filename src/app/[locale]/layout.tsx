@@ -52,7 +52,7 @@ export default async function RootLayout({
     >
       <body className={`min-h-full flex flex-col font-sans bg-background text-foreground ${fontClass}`}>
         <SessionProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <NextIntlClientProvider messages={messages}>
               <TopNavbar />
               <Navbar />

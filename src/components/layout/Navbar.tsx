@@ -8,11 +8,18 @@ export function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
+            src="/images/logos/Dexber_Black_PNG-02.png"
+            alt="Dexber Logo"
+            width={32}
+            height={32}
+            className="object-contain dark:hidden"
+          />
+          <Image
             src="/images/logos/Dexber_White_PNG-02.png"
             alt="Dexber Logo"
             width={32}
             height={32}
-            className="object-contain"
+            className="object-contain hidden dark:block"
           />
           <span className="text-xl font-bold tracking-tight text-foreground">Dexber</span>
         </Link>

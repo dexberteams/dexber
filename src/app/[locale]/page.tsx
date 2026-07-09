@@ -27,7 +27,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg md:text-xl text-brand-gray/80 max-w-2xl mx-auto mb-10"
+            className="text-lg md:text-xl text-muted-foreground/80 max-w-2xl mx-auto mb-10"
           >
             We design and develop reliable, innovative software solutions that help people and organizations communicate better and work smarter.
           </motion.p>
@@ -57,7 +57,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Our Services</h2>
-            <p className="text-brand-gray/70 max-w-2xl mx-auto">
+            <p className="text-muted-foreground/70 max-w-2xl mx-auto">
               From custom software to scalable web platforms, we provide full-cycle development services.
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function Home() {
                 <Code className="h-10 w-10 text-brand-blue mb-4" />
                 <CardTitle>Software Development</CardTitle>
               </CardHeader>
-              <CardContent className="text-brand-gray/70">
+              <CardContent className="text-muted-foreground/70">
                 Custom software solutions designed specifically for businesses and organizations.
               </CardContent>
             </Card>
@@ -76,7 +76,7 @@ export default function Home() {
                 <Layout className="h-10 w-10 text-brand-blue mb-4" />
                 <CardTitle>Web Solutions</CardTitle>
               </CardHeader>
-              <CardContent className="text-brand-gray/70">
+              <CardContent className="text-muted-foreground/70">
                 Modern, scalable, and responsive websites and e-commerce platforms.
               </CardContent>
             </Card>
@@ -85,7 +85,7 @@ export default function Home() {
                 <Lightbulb className="h-10 w-10 text-brand-blue mb-4" />
                 <CardTitle>IT Consulting</CardTitle>
               </CardHeader>
-              <CardContent className="text-brand-gray/70">
+              <CardContent className="text-muted-foreground/70">
                 Technology guidance, system planning, and digital transformation support.
               </CardContent>
             </Card>
@@ -94,7 +94,7 @@ export default function Home() {
                 <Smartphone className="h-10 w-10 text-brand-blue mb-4" />
                 <CardTitle>Product Development</CardTitle>
               </CardHeader>
-              <CardContent className="text-brand-gray/70">
+              <CardContent className="text-muted-foreground/70">
                 Designing and building innovative digital platforms and applications.
               </CardContent>
             </Card>
@@ -108,7 +108,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-white mb-6">Built on Core Values</h2>
-              <p className="text-brand-gray/70 mb-8 text-lg">
+              <p className="text-muted-foreground/70 mb-8 text-lg">
                 We believe in making complex technology simple and user-friendly, while building secure and dependable digital systems.
               </p>
               <ul className="space-y-6">
@@ -118,7 +118,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Innovation</h4>
-                    <p className="text-brand-gray/70">Continuously exploring new technologies and ideas.</p>
+                    <p className="text-muted-foreground/70">Continuously exploring new technologies and ideas.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
@@ -127,12 +127,12 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Reliability</h4>
-                    <p className="text-brand-gray/70">Building secure and dependable digital systems.</p>
+                    <p className="text-muted-foreground/70">Building secure and dependable digital systems.</p>
                   </div>
                 </li>
               </ul>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden border border-white/10">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden border border-border">
               <div className="absolute inset-0 bg-brand-blue/10 flex items-center justify-center">
                 <Image
                   src="/images/logos/Dexber_White_PNG-01.png"
@@ -151,7 +151,7 @@ export default function Home() {
       <section className="py-24 bg-brand-blue/10 border-t border-brand-blue/20">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to start your digital journey?</h2>
-          <p className="text-brand-gray/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-muted-foreground/80 mb-8 max-w-2xl mx-auto">
             Fill out our requirement form and we'll get back to you with a custom proposal and timeline.
           </p>
           <Link href="/get-started">
