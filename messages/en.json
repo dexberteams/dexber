@@ -137,7 +137,13 @@
     "cittheTitle": "Coming Soon: Citthe",
     "cittheDesc": "Our flagship product is currently in stealth mode. Get ready for a revolutionary new way to manage your digital presence.",
     "valuesTitle": "What Drives Us",
-    "valuesSubtitle": "Our core principles that guide every line of code we write."
+    "valuesSubtitle": "Our core principles that guide every line of code we write.",
+    "teamTitle": "Meet Our Team",
+    "teamSubtitle": "The brilliant minds behind Dexber",
+    "teamAbdullahRole": "Owner & CEO",
+    "teamKyumRole": "Fullstack Developer",
+    "teamJannatRole": "Frontend Developer",
+    "teamImageComingSoon": "Image Coming Soon"
   },
   "Services": {
     "title": "What We Build",

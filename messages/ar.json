@@ -137,7 +137,13 @@
     "cittheTitle": "قريباً: Citthe",
     "cittheDesc": "منتجنا الرئيسي حاليا قيد التطوير السري. استعد لطريقة ثورية جديدة لإدارة وجودك الرقمي.",
     "valuesTitle": "ما يحركنا",
-    "valuesSubtitle": "مبادئنا الأساسية التي توجه كل سطر من التعليمات البرمجية التي نكتبها."
+    "valuesSubtitle": "مبادئنا الأساسية التي توجه كل سطر من التعليمات البرمجية التي نكتبها.",
+    "teamTitle": "فريقنا",
+    "teamSubtitle": "العقول الرائعة وراء دكسبر",
+    "teamAbdullahRole": "المالك والمدير التنفيذي",
+    "teamKyumRole": "مطور Fullstack",
+    "teamJannatRole": "مطور واجهة المستخدم",
+    "teamImageComingSoon": "الصورة قريباً"
   },
   "Services": {
     "title": "ما نبنيه",

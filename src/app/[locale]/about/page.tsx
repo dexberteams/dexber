@@ -30,7 +30,7 @@ export default function AboutPage() {
       <section className="relative py-24 md:py-32 overflow-hidden bg-brand-navy">
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
         <div className="container relative mx-auto px-4 md:px-6">
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeIn}
@@ -49,7 +49,7 @@ export default function AboutPage() {
       {/* Story, Vision, Mission Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 md:px-6">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -98,7 +98,7 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section className="py-20 border-y border-border bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -129,7 +129,7 @@ export default function AboutPage() {
             <p className="text-lg text-muted-foreground">{t("valuesSubtitle")}</p>
           </div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -155,10 +155,84 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-24 bg-muted/30 border-y border-border">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-foreground mb-4">{t("teamTitle")}</h2>
+            <p className="text-lg text-muted-foreground">{t("teamSubtitle")}</p>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          >
+            {/* Team Member 1 */}
+            <motion.div variants={fadeIn}>
+              <Card className="h-full overflow-hidden border-brand-blue/20 bg-background/50 hover:bg-background transition-colors">
+                <CardContent className="p-0">
+                  <div className="aspect-square relative bg-muted">
+                    <img
+                      src="/images/about/abdullah.jpeg"
+                      alt="Abdullah"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-bold text-foreground mb-1">Mohammad Abdullah</h3>
+                    <p className="text-brand-blue font-medium">{t("teamAbdullahRole")}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Team Member 2 */}
+            <motion.div variants={fadeIn}>
+              <Card className="h-full overflow-hidden border-brand-blue/20 bg-background/50 hover:bg-background transition-colors">
+                <CardContent className="p-0">
+                  <div className="aspect-square relative bg-muted">
+                    <img
+                      src="/images/about/mdabdulkyum.png"
+                      alt="Md Abdul Kyum"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-bold text-foreground mb-1">Md Abdul Kyum</h3>
+                    <p className="text-brand-blue font-medium">{t("teamKyumRole")}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Team Member 3 */}
+            <motion.div variants={fadeIn}>
+              <Card className="h-full overflow-hidden border-brand-blue/20 bg-background/50 hover:bg-background transition-colors">
+                <CardContent className="p-0">
+                  <div className="aspect-square relative bg-muted flex items-center justify-center">
+                    <div className="text-muted-foreground/50 flex flex-col items-center">
+                      <Users className="w-16 h-16 mb-2" />
+                      <span>{t("teamImageComingSoon")}</span>
+                    </div>
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-bold text-foreground mb-1">Jannat</h3>
+                    <p className="text-brand-blue font-medium">{t("teamJannatRole")}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Product Teaser (Citthe) */}
       <section className="py-24 bg-brand-navy text-white text-center">
         <div className="container mx-auto px-4 md:px-6">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
