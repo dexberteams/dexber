@@ -1,13 +1,16 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import { Target, Lightbulb, Rocket, Shield, Users, Trophy, Code } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/Card";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 export default function AboutPage() {
   const t = useTranslations("About");
   const tHome = useTranslations("HomePage");
+  const locale = useLocale();
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -183,7 +186,10 @@ export default function AboutPage() {
                   </div>
                   <div className="p-6 text-center">
                     <h3 className="text-xl font-bold text-foreground mb-1">Mohammad Abdullah</h3>
-                    <p className="text-brand-blue font-medium">{t("teamAbdullahRole")}</p>
+                    <p className="text-brand-blue font-medium mb-4">{t("teamAbdullahRole")}</p>
+                    <Link href={`/${locale}/team/mohammad-abdullah`}>
+                      <Button variant="outline" size="sm" className="w-full">View Details</Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -202,7 +208,10 @@ export default function AboutPage() {
                   </div>
                   <div className="p-6 text-center">
                     <h3 className="text-xl font-bold text-foreground mb-1">Md Abdul Kyum</h3>
-                    <p className="text-brand-blue font-medium">{t("teamKyumRole")}</p>
+                    <p className="text-brand-blue font-medium mb-4">{t("teamKyumRole")}</p>
+                    <Link href={`/${locale}/team/md-abdul-kyum`}>
+                      <Button variant="outline" size="sm" className="w-full">View Details</Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -220,7 +229,10 @@ export default function AboutPage() {
                   </div>
                   <div className="p-6 text-center">
                     <h3 className="text-xl font-bold text-foreground mb-1">Jannat</h3>
-                    <p className="text-brand-blue font-medium">{t("teamJannatRole")}</p>
+                    <p className="text-brand-blue font-medium mb-4">{t("teamJannatRole")}</p>
+                    <Link href={`/${locale}/team/jannat`}>
+                      <Button variant="outline" size="sm" className="w-full">View Details</Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>

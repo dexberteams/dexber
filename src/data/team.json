@@ -1,0 +1,77 @@
+{
+  "members": [
+    {
+      "id": "md-abdul-kyum",
+      "name": "MD ABDUL KYUM",
+      "role": "Full Stack Developer",
+      "contact": {
+        "email": "kyummdabdul@gmail.com",
+        "phone": "+8801754-462-008"
+      },
+      "links": [
+        { "name": "LinkedIn", "url": "#" },
+        { "name": "Portfolio", "url": "#" },
+        { "name": "GitHub", "url": "#" }
+      ],
+      "skills": [
+        { "category": "Languages", "items": "JavaScript (ES6), TypeScript." },
+        { "category": "Frontend", "items": "HTML, CSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript, Redux, React.js, Next.js" },
+        { "category": "Backend", "items": "Node.js, Express.js, Nest.js, PostgreSQL, Prisma, Mongoose." },
+        { "category": "Database", "items": "MongoDB (NoSQL), Firebase, PostgreSQL." },
+        { "category": "Tools", "items": "Git, GitHub, Vercel, VS Code, Postman, GraphQL, Websocket.io, AWS, Docker, JWT." }
+      ],
+      "experience": [
+        {
+          "role": "Back End Developer",
+          "company": "SM Technology",
+          "location": "Bangladesh · On-site | Full-time",
+          "duration": "Jun 2025 – Aug 2025 (3 months)",
+          "responsibilities": [
+            "Designed and optimized back-end operations, ensuring scalability, security, and high performance.",
+            "Implemented real-time features, including push notifications and WebSocket-based communication.",
+            "Integrated AI solutions and secure payment systems."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "name": "Xynexa–Team Collaboration",
+          "links": {
+            "client": "xynexa-client",
+            "server": "xynexa-server"
+          },
+          "features": [
+            "Task and project management for any team with a dashboard to track progress and team updates.",
+            "Integrated chat and video conferencing system (like Google Meet).",
+            "Built real-time chat and video meetings; resolved deployment issues and teammate code conflicts."
+          ],
+          "technologies": "Next.js, Redux, Tailwind CSS, Clerk, Prisma, Node.js, Nest.js, websockets."
+        },
+        {
+          "name": "EduProSphere",
+          "links": {
+            "live": "EduProSphere",
+            "github": "EduProSphere",
+            "server": "EduProSphere"
+          },
+          "features": [
+            "Seamless Class Management: Manage schedules, track attendance, and share resources.",
+            "Enhanced Student Experience: Offering for accessing courses and assignments.",
+            "Secure Payment Integration: Powered by Stripe for secure and reliable transactions."
+          ],
+          "technologies": "React.js, Tailwind CSS, React Router, Firebase, MongoDB, Node.js, Express.js, JWT."
+        }
+      ],
+      "education": [
+        {
+          "degree": "Bachelor of Science ( BSc ) – 2022",
+          "institution": "Degree pass course"
+        }
+      ],
+      "languages": [
+        { "language": "English", "proficiency": "Proficient in reading and understanding." },
+        { "language": "Bengali", "proficiency": "Native" }
+      ]
+    }
+  ]
+}
