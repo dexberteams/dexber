@@ -56,7 +56,7 @@ export default async function RootLayout({
             <NextIntlClientProvider messages={messages}>
               <TopNavbar />
               <Navbar />
-              <main className="flex-1 mt-10">{children}</main>
+              <main className="flex-1 mt-0 md:mt-10">{children}</main>
               <Footer />
             </NextIntlClientProvider>
           </ThemeProvider>

@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { ArrowRight, Code, Layout, Lightbulb, Smartphone, Shield, Zap, Mail } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
-import teamData from "@/data/team.json";
-import { Badge } from "@/components/ui/Badge";
+
 
 export default function Home() {
   const t = useTranslations("HomePage");
@@ -20,7 +19,7 @@ export default function Home() {
       <section className="relative overflow-hidden pt-24 pb-32">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/20 via-brand-navy to-background -z-10" />
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -29,7 +28,7 @@ export default function Home() {
             {t("heroTitle1")} <br className="hidden md:block" />
             <span className="text-brand-blue">{t("heroTitle2")}</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -37,7 +36,7 @@ export default function Home() {
           >
             {t("heroSubtitle")}
           </motion.p>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -150,66 +149,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Developer Resume Section */}
-      <section className="py-24 bg-background border-t border-border">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">Meet Our Full Stack Developer</h2>
-            <p className="text-muted-foreground/70 max-w-2xl mx-auto">
-              Expertise that drives our robust and scalable solutions.
-            </p>
-          </div>
-          
-          {(() => {
-            const member = teamData.members.find(m => m.id === "md-abdul-kyum");
-            if (!member) return null;
-            
-            return (
-              <div className="max-w-4xl mx-auto bg-muted/30 border border-brand-blue/20 rounded-2xl p-8 space-y-8">
-                <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                  <div className="w-32 h-32 rounded-full overflow-hidden bg-muted shrink-0 border-2 border-brand-blue">
-                    <Image
-                      src={`/images/about/mdabdulkyum.png`}
-                      alt={member.name}
-                      width={128}
-                      height={128}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="text-center md:text-left flex-1">
-                    <h3 className="text-3xl font-bold text-foreground">{member.name}</h3>
-                    <p className="text-lg text-brand-blue font-medium mt-1">{member.role}</p>
-                    <div className="flex flex-wrap justify-center md:justify-start gap-4 text-muted-foreground pt-3">
-                      <a href={`mailto:${member.contact.email}`} className="flex items-center gap-2 hover:text-white transition-colors">
-                        <Mail className="w-4 h-4" />
-                        {member.contact.email}
-                      </a>
-                    </div>
-                  </div>
-                  <Link href={`/${locale}/team/${member.id}`}>
-                    <Button variant="outline">View Full Profile</Button>
-                  </Link>
-                </div>
-                
-                <div className="space-y-4 pt-4 border-t border-border">
-                  <h4 className="text-xl font-semibold text-white">Technical Skills</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {member.skills.map((skillGroup, idx) => (
-                      <Badge key={idx} variant="secondary" className="bg-brand-blue/10 text-brand-blue hover:bg-brand-blue/20 border-brand-blue/20">
-                        {skillGroup.category}
-                      </Badge>
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground pt-2">
-                    {member.skills.map(s => s.items).join(" | ")}
-                  </p>
-                </div>
-              </div>
-            );
-          })()}
         </div>
       </section>
 

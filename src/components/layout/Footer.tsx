@@ -38,7 +38,7 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold text-white">{t("legal")}</h3>
             <ul className="space-y-3 text-sm text-muted-foreground/70">
-              <li><Link href="/privacy" className="hover:text-white transition-colors">{t("privacy")}</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">{t("privacy")}</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">{t("terms")}</Link></li>
             </ul>
           </div>

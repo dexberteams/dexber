@@ -1,21 +1,40 @@
+"use client";
+
+import { useState } from "react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { useTranslations } from "next-intl";
 import { MobileMenu } from "./MobileMenu";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 export function Navbar() {
   const t = useTranslations("Navigation");
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (previous === undefined) return;
+    if (latest > previous && latest > 50) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   return (
-    <header className="sticky top-10 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
+    <motion.header 
+      animate={{ top: hidden ? 0 : undefined }}
+      className={`sticky z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-all duration-300 ease-in-out ${hidden ? "top-0" : "top-0 md:top-10"}`}
+    >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/logos/Dexber_Black_PNG-02.png"
             alt="Dexber Logo"
-            width={32}
-            height={32}
+            width={42}
+            height={42}
             className="object-contain dark:hidden"
           />
           <Image
@@ -42,6 +61,6 @@ export function Navbar() {
           <MobileMenu />
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

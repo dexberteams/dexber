@@ -33,7 +33,7 @@ export function TopNavbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 z-[60] w-full border-b border-border bg-background/95 backdrop-blur-md text-foreground text-sm"
+      className="hidden md:block fixed top-0 z-[60] w-full border-b border-border bg-background/95 backdrop-blur-md text-foreground text-sm"
     >
       <div className="container mx-auto flex h-10 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-4">
